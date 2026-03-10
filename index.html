@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Counsel | Ready Legal</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+:root {
+  --navy: #0b2a4a;
+  --navy-mid: #143a63;
+  --orange: #ff8c2a;
+  --orange-dark: #e67a1f;
+  --white: #ffffff;
+  --off-white: #f5f7fb;
+  --gray: #e4e8f0;
+  --text: #1a2332;
+  --text-light: #5a6478;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--white);
+  color: var(--text);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* HEADER */
+
+header {
+  background: var(--navy);
+  padding: 0 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: 68px;
+  box-shadow: 0 2px 24px rgba(0,0,0,0.25);
+}
+
+.logo {
+  color: white;
+  text-decoration: none;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+
+.logo:hover { color: var(--orange); }
+
+nav { display: flex; gap: 28px; align-items: center; }
+
+nav a {
+  color: rgba(255,255,255,0.8);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  transition: color 0.3s;
+}
+
+nav a:hover { color: white; }
+
+.nav-cta {
+  background: var(--orange);
+  color: white !important;
+  padding: 9px 20px;
+  border-radius: 3px;
+  font-weight: 600 !important;
+  transition: background 0.3s !important;
+}
+
+.nav-cta:hover { background: var(--orange-dark) !important; }
+
+/* HERO */
+
+.hero {
+  background: var(--navy);
+  padding: 80px 48px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0; bottom: 0;
+  width: 40%;
+  background: linear-gradient(135deg, transparent 0%, rgba(255,140,42,0.05) 100%);
+  pointer-events: none;
+}
+
+.hero-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 16px;
+  opacity: 0;
+  animation: fadeUp 0.7s ease forwards 0.1s;
+}
+
+.hero h1 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: clamp(36px, 5vw, 60px);
+  color: white;
+  line-height: 1.1;
+  margin-bottom: 16px;
+  opacity: 0;
+  animation: fadeUp 0.7s ease forwards 0.25s;
+}
+
+.hero-sub {
+  font-size: 16px;
+  color: rgba(255,255,255,0.6);
+  font-weight: 300;
+  opacity: 0;
+  animation: fadeUp 0.7s ease forwards 0.4s;
+}
+
+/* PROFILE SECTION */
+
+.profile-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 48px;
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 72px;
+  align-items: start;
+}
+
+.profile-photo-wrap {
+  position: sticky;
+  top: 88px;
+}
+
+.profile-photo-wrap img {
+  width: 100%;
+  display: block;
+  border-radius: 3px;
+  filter: grayscale(100%);
+  border-top: 3px solid var(--orange);
+}
+
+.profile-name-card {
+  background: var(--off-white);
+  border: 1px solid var(--gray);
+  padding: 24px;
+  margin-top: 20px;
+  border-radius: 3px;
+}
+
+.profile-name-card h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+
+.profile-name-card .title {
+  font-size: 13px;
+  color: var(--orange);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+}
+
+.profile-name-card .contact-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text-light);
+  text-decoration: none;
+  margin-bottom: 8px;
+  transition: color 0.3s;
+}
+
+.profile-name-card .contact-link:hover { color: var(--orange); }
+
+.profile-name-card .contact-link span { color: var(--orange); font-size: 15px; }
+
+/* BIO */
+
+.profile-bio { padding-top: 8px; }
+
+.bio-block {
+  margin-bottom: 48px;
+}
+
+.bio-block p {
+  font-size: 15px;
+  color: var(--text-light);
+  line-height: 1.85;
+  margin-bottom: 16px;
+  font-weight: 400;
+}
+
+.bio-block p:last-child { margin-bottom: 0; }
+
+/* META GRIDS */
+
+.meta-section {
+  margin-bottom: 44px;
+}
+
+.meta-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--gray);
+}
+
+.meta-list {
+  list-style: none;
+}
+
+.meta-list li {
+  font-size: 14px;
+  color: var(--text);
+  padding: 8px 0;
+  border-bottom: 1px solid var(--off-white);
+  display: flex;
+  gap: 10px;
+  line-height: 1.5;
+}
+
+.meta-list li::before {
+  content: '—';
+  color: var(--orange);
+  flex-shrink: 0;
+  font-weight: 600;
+}
+
+.meta-list li.sub-item {
+  padding-left: 20px;
+  font-size: 13px;
+  color: var(--text-light);
+}
+
+.meta-list li.sub-item::before { content: '·'; }
+
+/* RECOGNITION CARDS */
+
+.rec-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 4px;
+}
+
+.rec-card {
+  background: var(--off-white);
+  border: 1px solid var(--gray);
+  border-left: 3px solid var(--orange);
+  padding: 16px 18px;
+  border-radius: 2px;
+}
+
+.rec-card .rec-org {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+
+.rec-card .rec-detail {
+  font-size: 12px;
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+/* PUBLICATIONS */
+
+.publications-section {
+  background: var(--navy);
+  padding: 80px 48px;
+}
+
+.pub-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.pub-inner .section-label { color: var(--orange); margin-bottom: 14px; }
+
+.pub-inner h2 {
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 700;
+  color: white;
+  margin-bottom: 40px;
+}
+
+.pub-list { list-style: none; }
+
+.pub-list li {
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  padding: 18px 0;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.pub-list li::before {
+  content: '→';
+  color: var(--orange);
+  flex-shrink: 0;
+  font-weight: 600;
+  margin-top: 1px;
+}
+
+.pub-list li a {
+  font-size: 14px;
+  color: rgba(255,255,255,0.8);
+  text-decoration: none;
+  line-height: 1.6;
+  transition: color 0.3s;
+}
+
+.pub-list li a:hover { color: var(--orange); }
+
+.pub-list li .pub-meta {
+  font-size: 12px;
+  color: rgba(255,255,255,0.4);
+  margin-top: 3px;
+}
+
+/* SERVICES */
+
+.services-section {
+  background: var(--off-white);
+  padding: 80px 48px;
+  border-top: 1px solid var(--gray);
+}
+
+.services-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 14px;
+}
+
+.section-title {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: clamp(24px, 3vw, 36px);
+  color: var(--navy);
+  line-height: 1.15;
+  margin-bottom: 40px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.service-col {
+  background: white;
+  border: 1px solid var(--gray);
+  border-top: 3px solid var(--navy);
+  padding: 32px 28px;
+  border-radius: 2px;
+}
+
+.service-col h3 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--orange);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.service-col ul { list-style: none; }
+
+.service-col li {
+  font-size: 13px;
+  color: var(--text-light);
+  padding: 8px 0;
+  border-bottom: 1px solid var(--off-white);
+  display: flex;
+  gap: 10px;
+  line-height: 1.5;
+}
+
+.service-col li::before {
+  content: '—';
+  color: var(--orange);
+  flex-shrink: 0;
+  font-weight: 600;
+}
+
+/* INTAKE FORM */
+
+.cta-section {
+  background: white;
+  border-top: 1px solid var(--gray);
+  padding: 80px 48px;
+}
+
+.cta-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.cta-left p {
+  font-size: 16px;
+  color: var(--text-light);
+  line-height: 1.85;
+  font-weight: 300;
+  margin-bottom: 28px;
+}
+
+.cta-phone {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 34px;
+  color: var(--navy);
+  text-decoration: none;
+  display: block;
+  margin-bottom: 6px;
+  transition: color 0.3s;
+}
+
+.cta-phone:hover { color: var(--orange); }
+.cta-hours { font-size: 13px; color: var(--text-light); font-weight: 500; }
+
+.form-box {
+  background: var(--off-white);
+  border: 1px solid var(--gray);
+  border-top: 3px solid var(--orange);
+  padding: 40px 36px;
+  border-radius: 3px;
+}
+
+.form-box h3 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--navy);
+  margin-bottom: 24px;
+}
+
+form label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+
+form input,
+form select,
+form textarea {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1px solid var(--gray);
+  border-radius: 3px;
+  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+  color: var(--text);
+  background: white;
+  margin-bottom: 18px;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+  outline: none;
+  border-color: var(--orange);
+}
+
+form textarea { resize: vertical; }
+
+form button {
+  background: var(--orange);
+  color: white;
+  border: none;
+  width: 100%;
+  padding: 14px;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: 'Inter', sans-serif;
+  border-radius: 3px;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  transition: background 0.3s;
+}
+
+form button:hover { background: var(--orange-dark); }
+
+.btn-primary {
+  background: var(--orange);
+  color: white;
+  padding: 14px 32px;
+  border-radius: 3px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  transition: background 0.3s, transform 0.2s;
+  display: inline-block;
+}
+
+.btn-primary:hover { background: var(--orange-dark); transform: translateY(-2px); }
+
+/* FOOTER */
+
+footer { background: #07192c; padding: 56px 48px 28px; }
+
+.footer-inner { max-width: 1200px; margin: 0 auto; }
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 56px;
+  padding-bottom: 44px;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  margin-bottom: 28px;
+}
+
+.footer-brand .logo { display: block; margin-bottom: 14px; }
+.footer-brand p { font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.8; max-width: 280px; }
+
+.footer-col h4 {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 18px;
+}
+
+.footer-col ul { list-style: none; }
+.footer-col li { margin-bottom: 9px; }
+.footer-col a { font-size: 13px; color: rgba(255,255,255,0.45); text-decoration: none; transition: color 0.3s; }
+.footer-col a:hover { color: var(--orange); }
+
+.footer-contact { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.9; }
+.footer-contact a { color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.3s; }
+.footer-contact a:hover { color: var(--orange); }
+
+.footer-bottom { display: flex; justify-content: space-between; align-items: flex-start; gap: 32px; flex-wrap: wrap; }
+.footer-disclaimer { font-size: 11px; color: rgba(255,255,255,0.2); line-height: 1.75; max-width: 680px; }
+.footer-copy { font-size: 12px; color: rgba(255,255,255,0.25); white-space: nowrap; }
+
+/* ANIMATIONS */
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 960px) {
+  nav { display: none; }
+  header { padding: 0 24px; }
+  .hero { padding: 60px 24px; }
+  .profile-section { grid-template-columns: 1fr; padding: 48px 24px; }
+  .profile-photo-wrap { position: static; max-width: 300px; }
+  .rec-cards { grid-template-columns: 1fr; }
+  .publications-section, .services-section, .cta-section { padding: 60px 24px; }
+  .services-grid { grid-template-columns: 1fr; }
+  .cta-inner { grid-template-columns: 1fr; gap: 48px; }
+  .footer-top { grid-template-columns: 1fr; gap: 32px; }
+  footer { padding: 48px 24px 24px; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <a href="index.html" class="logo">READY LEGAL</a>
+  <nav>
+    <a href="counsel.html" style="color:white;">Counsel</a>
+    <a href="https://readylegal.net/practice-areas/">Practice Areas</a>
+    <a href="https://readylegal.net/pricing/">Pricing</a>
+    <a href="https://readylegal.net/about/">About</a>
+    <a href="https://readylegal.net/articles/">Blog</a>
+    <a href="#intake" class="nav-cta">Get Help</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <p class="hero-eyebrow">Ready Legal — Orlando, Florida</p>
+    <h1>Counsel</h1>
+    <p class="hero-sub">Moving your business forward.</p>
+  </div>
+</section>
+
+<!-- PROFILE -->
+<section class="profile-section">
+
+  <!-- LEFT: PHOTO + NAME CARD -->
+  <div class="profile-photo-wrap">
+    <img src="https://readylegal.net/wp-content/uploads/2023/08/professional-picture-2.jpg" alt="Travis S. McConnell, Attorney">
+    <div class="profile-name-card">
+      <h2>Travis S. McConnell</h2>
+      <div class="title">Managing Attorney</div>
+      <a href="tel:4072582002" class="contact-link"><span>📞</span> (407) 258-2002</a>
+      <a href="mailto:travis@readylegal.net" class="contact-link"><span>✉️</span> travis@readylegal.net</a>
+      <a href="https://www.linkedin.com/in/constructionlawyerorlando/" class="contact-link" target="_blank"><span>🔗</span> LinkedIn</a>
+    </div>
+  </div>
+
+  <!-- RIGHT: BIO + META -->
+  <div class="profile-bio">
+
+    <div class="bio-block">
+      <p>Travis S. McConnell is a business and construction lawyer located in Orlando, FL. Mr. McConnell founded Ready Legal with the aim of serving small businesses after practicing law at one of the largest law firms in the country. His clients have included a diverse range of companies, such as contractors, suppliers, landlords, retailers, manufacturers, lenders, and developers.</p>
+      <p>Mr. McConnell has been involved in construction for more than a decade, since joining the U.S. Army Reserve as an Engineer Officer. Before leaving the Army, he served in the Judge Advocate General's (JAG) Corps as Trial Counsel, performing litigation and general counsel duties for an engineer command overseeing more than 4,000 Soldiers.</p>
+      <p>In private practice, Mr. McConnell has served clients across a spectrum of backgrounds, from Fortune-20 corporations to family-owned operations. As an entrepreneur and attorney, Mr. McConnell contributes to his clients' success through both legal experience and business judgment.</p>
+    </div>
+
+    <!-- RECOGNITION -->
+    <div class="meta-section">
+      <div class="meta-label">Recognition</div>
+      <ul class="meta-list">
+        <li>Florida Super Lawyers® — Rising Stars, Construction Litigation (2021–2025)</li>
+        <li>Best Lawyers® — Ones to Watch (2022–2024): Construction Law, Regulatory Law, Commercial Litigation</li>
+        <li>Construction Law Society of America — Invitee for Associate Fellowship (2022, 2024)</li>
+        <li>Florida State University — Certificate in Business Law, With Highest Honors (2017)</li>
+      </ul>
+    </div>
+
+    <!-- EDUCATION -->
+    <div class="meta-section">
+      <div class="meta-label">Education</div>
+      <ul class="meta-list">
+        <li>Florida State University — J.D., cum laude</li>
+        <li>Florida Tech — B.S., summa cum laude</li>
+      </ul>
+    </div>
+
+    <!-- EXPERIENCE -->
+    <div class="meta-section">
+      <div class="meta-label">Experience</div>
+      <ul class="meta-list">
+        <li>Baker Donelson</li>
+        <li>Lippes Mathias</li>
+        <li>Cotney Construction Law</li>
+      </ul>
+    </div>
+
+    <!-- ADMISSIONS -->
+    <div class="meta-section">
+      <div class="meta-label">Bar Admissions</div>
+      <ul class="meta-list">
+        <li>Florida Bar</li>
+        <li>U.S. District Court for the Middle District of Florida</li>
+        <li>Eleventh Circuit U.S. Court of Appeals</li>
+        <li>Fifth Circuit U.S. Court of Appeals</li>
+      </ul>
+    </div>
+
+    <!-- PRACTICE AREAS -->
+    <div class="meta-section">
+      <div class="meta-label">Practice Areas</div>
+      <ul class="meta-list">
+        <li>Construction Law</li>
+        <li>Business Law</li>
+        <li>Litigation</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section class="publications-section">
+  <div class="pub-inner">
+    <p class="section-label">Writing</p>
+    <h2>Recent Publications</h2>
+    <ul class="pub-list">
+
+      <li>
+        <a href="https://www.ehstoday.com/construction/article/55300992/proactive-safety-planning-is-vital-to-construction-safety" target="_blank">
+          Proactive Safety Planning is Vital to Construction Safety
+          <div class="pub-meta">EHS Today &nbsp;·&nbsp; July 2025</div>
+        </a>
+      </li>
+
+      <li>
+        <a href="https://joom.ag/TDtd/p4" target="_blank">
+          Essential Practices for Safe Trench Work in Utility Construction
+          <div class="pub-meta">Ditchmen Magazine &nbsp;·&nbsp; June 2024</div>
+        </a>
+      </li>
+
+      <li>
+        <a href="https://www.law.com/dailybusinessreview/2024/07/02/floridas-new-procedure-for-removing-squatters-effective-in-july-use-with-caution/" target="_blank">
+          Florida's New Procedure for Removing Squatters Effective in July: Use with Caution
+          <div class="pub-meta">Daily Business Review &nbsp;·&nbsp; July 2024</div>
+        </a>
+      </li>
+
+      <li>
+        <a href="https://ampp.mydigitalpublication.com/may-2024/page-28" target="_blank">
+          Safety Compliance in Abrasive Blasting Operations
+          <div class="pub-meta">CoatingsPro Magazine &nbsp;·&nbsp; May 2024</div>
+        </a>
+      </li>
+
+      <li>
+        <a href="https://www.roofingcontractor.com/articles/99348-florida-aims-to-standardize-construction-lien-waivers" target="_blank">
+          Florida Aims to Standardize Construction Lien Waivers
+          <div class="pub-meta">Roofing Contractor &nbsp;·&nbsp; April 2024</div>
+        </a>
+      </li>
+
+      <li>
+        <a href="https://www.law.com/dailybusinessreview/2023/05/03/fla-shortens-time-for-filing-construction-related-suits-imposes-materiality-threshold/" target="_blank">
+          Florida Shortens Time for Filing Construction-Related Suits, Imposes Materiality Threshold
+          <div class="pub-meta">Daily Business Review &nbsp;·&nbsp; April 2023</div>
+        </a>
+      </li>
+
+      <li>
+        <a href="https://www.jdsupra.com/legalnews/florida-shortens-time-for-filing-6387899/" target="_blank">
+          Florida Shortens Time for Filing Construction-Related Suits, Imposes Materiality Threshold
+          <div class="pub-meta">JD Supra &nbsp;·&nbsp; April 2023</div>
+        </a>
+      </li>
+
+      <li>
+        <a href="https://roofingmagazine.com/safety-obligations-under-the-osh-act-can-extend-to-non-employees-and-other-trades/" target="_blank">
+          Safety Obligations Under the OSH Act Can Extend to Non-Employees and Other Trades
+          <div class="pub-meta">Roofing Magazine &nbsp;·&nbsp; July 2020</div>
+        </a>
+      </li>
+
+      <li>
+        <a href="https://www.rooferscoffeeshop.com/post/six-important-tips-for-maintaining-ladder-safety-while-roofing" target="_blank">
+          Six Important Tips for Maintaining Ladder Safety While Roofing
+          <div class="pub-meta">Roofers Coffee Shop &nbsp;·&nbsp; August 2020</div>
+        </a>
+      </li>
+
+      <li>
+        <a href="https://www.roofingcontractor.com/articles/94652-covid-19-mask-requirements-in-construction" target="_blank">
+          COVID-19: Mask Requirements in Construction
+          <div class="pub-meta">Roofing Contractor &nbsp;·&nbsp; June 2020</div>
+        </a>
+      </li>
+
+      <li>
+        <a href="https://nace.mydigitalpublication.com/publication/?m=61415&i=616607&p=30&ver=html5" target="_blank">
+          Managing Tragedy: Overcoming Accidents and Fatalities in the Workplace
+          <div class="pub-meta">CoatingsPro Magazine &nbsp;·&nbsp; March 2018</div>
+        </a>
+      </li>
+
+      <li>
+        <a href="https://www.rooferscoffeeshop.com/post/four-important-tips-to-reduce-struck-by-hazards-in-roofing" target="_blank">
+          Four Important Tips to Reduce Struck-by Hazards in Roofing
+          <div class="pub-meta">Roofers Coffee Shop &nbsp;·&nbsp; September 2020</div>
+        </a>
+      </li>
+
+      <li>
+        <a href="https://issuu.com/roofingflorida/docs/august_2020_dbfc19383029ba/10" target="_blank">
+          COVID-19 Restrictions and Heat-Related Injuries and Illness
+          <div class="pub-meta">Florida Roofing Magazine &nbsp;·&nbsp; August 2020</div>
+        </a>
+      </li>
+
+    </ul>
+  </div>
+</section>
+
+<!-- REPRESENTATIVE SERVICES -->
+<section class="services-section">
+  <div class="services-inner">
+    <p class="section-label">What We Handle</p>
+    <h2 class="section-title">Representative Services</h2>
+    <div class="services-grid">
+
+      <div class="service-col">
+        <h3>Construction Law</h3>
+        <ul>
+          <li>Reviewing and negotiating contracts between contractors, suppliers, and owners</li>
+          <li>Litigating claims involving construction defects, scheduling, and payment disputes</li>
+          <li>Drafting lien claims and notices of nonpayment to payment bond sureties</li>
+          <li>Defending disciplinary actions and investigations administered by DBPR/CILB</li>
+          <li>Assisting with construction and various trade licensing applications</li>
+          <li>Defending against OSHA citations and advising on safety compliance matters</li>
+          <li>Drafting routine contracts, such as customer agreements and form subcontracts</li>
+          <li>Addressing permitting issues and building department misconduct</li>
+        </ul>
+      </div>
+
+      <div class="service-col">
+        <h3>Business Law</h3>
+        <ul>
+          <li>Incorporating and organizing new business entities; drafting governance documents</li>
+          <li>Litigating breach of contract and tort claims involving commercial transactions</li>
+          <li>Defending regulatory enforcement actions such as OSHA safety citations</li>
+          <li>Responding to improper conduct, such as unfair competition or false reviews</li>
+          <li>Preparing routine-use contracts, such as customer terms of service</li>
+          <li>Reviewing and negotiating business-to-business contracts for vendor services</li>
+          <li>Serving as general counsel for compliance and corporate governance issues</li>
+          <li>Litigating claims between partners and co-owners of businesses</li>
+        </ul>
+      </div>
+
+      <div class="service-col">
+        <h3>Litigation</h3>
+        <ul>
+          <li>Representing property owners in eviction, unlawful detainer, and ejectment actions</li>
+          <li>Litigating contract and tort claims between buyers, sellers, and transacting parties</li>
+          <li>Responding to code violations administered by code enforcement agencies</li>
+          <li>Litigating claims between owners of adjacent and neighboring real property</li>
+          <li>Challenging and resolving improper lien claims on behalf of property owners</li>
+          <li>Litigating actions involving misappropriation of investment opportunities</li>
+          <li>Preparing title insurance claims on behalf of property owners</li>
+          <li>Litigating claims between joint owners of real property, such as partition actions</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- INTAKE FORM -->
+<section class="cta-section" id="intake">
+  <div class="cta-inner">
+    <div class="cta-left">
+      <p class="section-label">Get Help</p>
+      <h2 class="section-title">Ready to speak with an attorney?</h2>
+      <p>Complete the form and our team will follow up promptly. You can also reach us directly by phone.</p>
+      <a href="tel:4072582002" class="cta-phone">407.258.2002</a>
+      <p class="cta-hours">Monday – Friday &nbsp;|&nbsp; 9:00 AM – 5:00 PM</p>
+    </div>
+    <div class="form-box">
+      <h3>Request a Consultation</h3>
+      <form action="https://formspree.io/f/xgonadnj" method="POST">
+        <input type="hidden" name="_subject" value="Consultation Request - Ready Legal">
+
+        <label>Name</label>
+        <input type="text" name="name" placeholder="Jane Smith" required>
+
+        <label>Email</label>
+        <input type="email" name="email" placeholder="jane@example.com" required>
+
+        <label>Phone</label>
+        <input type="tel" name="phone" placeholder="(407) 555-0000">
+
+        <label>Briefly Describe Your Legal Matter</label>
+        <textarea name="message" rows="4" placeholder="Tell us about your situation..." required></textarea>
+
+        <button type="submit">Get Help →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">READY LEGAL</a>
+        <p>Prompt, capable, and effective legal representation for Orlando's small business community. Construction law, business law, and litigation throughout Florida.</p>
+        <br>
+        <p style="font-size:11px; color:rgba(255,255,255,0.22);">Ready Legal is the operating name of Travis McConnell, PLLC.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="counsel.html">Counsel</a></li>
+          <li><a href="https://readylegal.net/practice-areas/">Practice Areas</a></li>
+          <li><a href="https://readylegal.net/pricing/">Pricing</a></li>
+          <li><a href="https://readylegal.net/about/">About</a></li>
+          <li><a href="https://readylegal.net/articles/">Blog</a></li>
+          <li><a href="#intake">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <div class="footer-contact">
+          924 N. Magnolia Avenue<br>
+          Suite 202, #1178<br>
+          Orlando, FL 32803<br>
+          <span style="font-size:11px; color:rgba(255,255,255,0.25);">*Postbox — mailing only</span>
+          <br><br>
+          <a href="tel:4072582002">(407) 258-2002</a><br>
+          <a href="mailto:admin@readylegal.net">admin@readylegal.net</a>
+          <br><br>
+          Veteran Owned 🇺🇸
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-disclaimer">
+        The information on this page is for general informational purposes only and does not constitute legal advice. Nothing here should be interpreted as an offer to provide legal services. No attorney-cli
