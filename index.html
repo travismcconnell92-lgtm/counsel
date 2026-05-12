@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -101,6 +101,23 @@ nav a:hover { color: white; }
   width: 40%;
   background: linear-gradient(135deg, transparent 0%, rgba(255,140,42,0.05) 100%);
   pointer-events: none;
+}
+
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg, rgba(11,42,74,0.95) 40%, rgba(11,42,74,0.55) 100%);
+  z-index: 1;
 }
 
 .hero-inner {
@@ -618,19 +635,23 @@ footer { background: #07192c; padding: 56px 48px 28px; }
 
 <!-- HEADER -->
 <header>
-  <a href="https://home.readylegal.net" class="logo">READY LEGAL</a>
+  <a href="https://home.readylegal.net/" class="logo">READY LEGAL</a>
   <nav>
-    <a href="https://counsel.readylegal.net" style="color:white;">Counsel</a>
-    <a href="https://practices.readylegal.net">Practice Areas</a>
-    <a href="https://pricing.readylegal.net">Pricing</a>
-    <a href="https://about.readylegal.net">About</a>
-    <a href="https://resources.readylegal.net">Resources</a>
+    <a href="https://counsel.readylegal.net/" style="color:white;">Counsel</a>
+    <a href="https://practices.readylegal.net/">Practice Areas</a>
+    <a href="https://pricing.readylegal.net/">Pricing</a>
+    <a href="https://about.readylegal.net/">About</a>
+    <a href="https://resources.readylegal.net/">Resources</a>
     <a href="#intake" class="nav-cta">Get Help</a>
   </nav>
 </header>
 
 <!-- HERO -->
 <section class="hero">
+  <video autoplay muted loop playsinline class="hero-video">
+    <source src="https://videos.files.wordpress.com/TZ7TsWBb/13681217_1920_1080_25fps.mp4" type="video/mp4">
+  </video>
+  <div class="hero-overlay"></div>
   <div class="hero-inner">
     <p class="hero-eyebrow">Ready Legal — Orlando, Florida</p>
     <h1>Counsel</h1>
@@ -643,7 +664,7 @@ footer { background: #07192c; padding: 56px 48px 28px; }
 
   <!-- LEFT: PHOTO + NAME CARD -->
   <div class="profile-photo-wrap">
-    <img src="https://readylegal.net/wp-content/uploads/2023/08/professional-picture-2.jpg" alt="Travis S. McConnell, Attorney">
+    <img src="https://readylegal.net/wp-content/uploads/2026/05/professional-picture-2.jpg" alt="Travis S. McConnell, Attorney">
     <div class="profile-name-card">
       <h2>Travis S. McConnell</h2>
       <div class="title">Managing Attorney</div>
@@ -657,9 +678,22 @@ footer { background: #07192c; padding: 56px 48px 28px; }
   <div class="profile-bio">
 
     <div class="bio-block">
-      <p>Travis S. McConnell is a business and construction lawyer located in Orlando, FL. Mr. McConnell founded Ready Legal with the aim of serving small businesses after practicing law at one of the largest law firms in the country. His clients have included a diverse range of companies, such as contractors, suppliers, landlords, retailers, manufacturers, lenders, and developers.</p>
-      <p>Mr. McConnell has been involved in construction for more than a decade, since joining the U.S. Army Reserve as an Engineer Officer. Before leaving the Army, he served in the Judge Advocate General's (JAG) Corps as Trial Counsel, performing litigation and general counsel duties for an engineer command overseeing more than 4,000 Soldiers.</p>
-      <p>In private practice, Mr. McConnell has served clients across a spectrum of backgrounds, from Fortune-20 corporations to family-owned operations. As an entrepreneur and attorney, Mr. McConnell contributes to his clients' success through both legal experience and business judgment.</p>
+      <p>Travis S. McConnell is a business and construction lawyer 
+located in Orlando, FL. Mr. McConnell founded Ready Legal with the aim 
+of serving small businesses after practicing law at one of the largest 
+law firms in the country. His clients have included a diverse range of 
+companies, such as contractors, suppliers, landlords, retailers, 
+manufacturers, lenders, and developers.</p>
+      <p>Mr. McConnell has been involved in construction for more than a
+ decade, since joining the U.S. Army Reserve as an Engineer Officer. 
+Before leaving the Army, he served in the Judge Advocate General's (JAG)
+ Corps as Trial Counsel, performing litigation and general counsel 
+duties for an engineer command overseeing more than 4,000 Soldiers.</p>
+      <p>In private practice, Mr. McConnell has served clients across a 
+spectrum of backgrounds, from Fortune-20 corporations to family-owned 
+operations. As an entrepreneur and attorney, Mr. McConnell contributes 
+to his clients' success through both legal experience and business 
+judgment.</p>
     </div>
 
     <!-- RECOGNITION -->
@@ -794,7 +828,7 @@ footer { background: #07192c; padding: 56px 48px 28px; }
       </li>
 
       <li>
-        <a href="https://nace.mydigitalpublication.com/publication/?m=61415&i=616607&p=30&ver=html5" target="_blank">
+        <a href="https://nace.mydigitalpublication.com/publication/?m=61415&amp;i=616607&amp;p=30&amp;ver=html5" target="_blank">
           Managing Tragedy: Overcoming Accidents and Fatalities in the Workplace
           <div class="pub-meta">CoatingsPro Magazine &nbsp;·&nbsp; March 2018</div>
         </a>
@@ -887,16 +921,16 @@ footer { background: #07192c; padding: 56px 48px 28px; }
         <input type="hidden" name="_subject" value="Consultation Request - Ready Legal">
 
         <label>Name</label>
-        <input type="text" name="name" placeholder="Jane Smith" required>
+        <input type="text" name="name" placeholder="Jane Smith" required="">
 
         <label>Email</label>
-        <input type="email" name="email" placeholder="jane@example.com" required>
+        <input type="email" name="email" placeholder="jane@example.com" required="">
 
         <label>Phone</label>
         <input type="tel" name="phone" placeholder="(407) 555-0000">
 
         <label>Briefly Describe Your Legal Matter</label>
-        <textarea name="message" rows="4" placeholder="Tell us about your situation..." required></textarea>
+        <textarea name="message" rows="4" placeholder="Tell us about your situation..." required=""></textarea>
 
         <button type="submit">Get Help →</button>
       </form>
@@ -909,19 +943,21 @@ footer { background: #07192c; padding: 56px 48px 28px; }
   <div class="footer-inner">
     <div class="footer-top">
       <div class="footer-brand">
-        <a href="https://home.readylegal.net" class="logo">READY LEGAL</a>
-        <p>Prompt, capable, and effective legal representation for Orlando's small business community. Construction law, business law, and litigation throughout Florida.</p>
+        <a href="https://home.readylegal.net/" class="logo">READY LEGAL</a>
+        <p>Prompt, capable, and effective legal representation for 
+Orlando's small business community. Construction law, business law, and 
+litigation throughout Florida.</p>
         <br>
         <p style="font-size:11px; color:rgba(255,255,255,0.22);">Ready Legal is the operating name of Travis McConnell, PLLC.</p>
       </div>
       <div class="footer-col">
         <h4>Navigation</h4>
         <ul>
-          <li><a href="https://counsel.readylegal.net">Counsel</a></li>
-          <li><a href="https://practices.readylegal.net">Practice Areas</a></li>
-          <li><a href="https://pricing.readylegal.net">Pricing</a></li>
-          <li><a href="https://about.readylegal.net">About</a></li>
-          <li><a href="https://resources.readylegal.net">Resources</a></li>
+          <li><a href="https://counsel.readylegal.net/">Counsel</a></li>
+          <li><a href="https://practices.readylegal.net/">Practice Areas</a></li>
+          <li><a href="https://pricing.readylegal.net/">Pricing</a></li>
+          <li><a href="https://about.readylegal.net/">About</a></li>
+          <li><a href="https://resources.readylegal.net/">Resources</a></li>
           <li><a href="#intake">Contact</a></li>
         </ul>
       </div>
@@ -935,7 +971,7 @@ footer { background: #07192c; padding: 56px 48px 28px; }
           <br><br>
           <a href="tel:4072582002">(407) 258-2002</a><br>
           <a href="mailto:admin@readylegal.net">admin@readylegal.net</a><br>
-          <a href="https://home.readylegal.net">www.readylegal.net</a>
+          <a href="https://home.readylegal.net/">www.readylegal.net</a>
           <br><br>
           Veteran Owned 🇺🇸
         </div>
@@ -943,12 +979,18 @@ footer { background: #07192c; padding: 56px 48px 28px; }
     </div>
     <div class="footer-bottom">
       <p class="footer-disclaimer">
-        The information on this page is for general informational purposes only and does not constitute legal advice. Nothing here should be interpreted as an offer to provide legal services. No attorney-client relationship is formed until a written engagement agreement has been executed by both parties. Services are limited to matters involving the State of Florida.
+        The information on this page is for general informational 
+purposes only and does not constitute legal advice. Nothing here should 
+be interpreted as an offer to provide legal services. No attorney-client
+ relationship is formed until a written engagement agreement has been 
+executed by both parties. Services are limited to matters involving the 
+State of Florida.
       </p>
       <p class="footer-copy">© 2025 Ready Legal</p>
     </div>
   </div>
 </footer>
 
-</body>
-</html>
+
+
+</body></html>
